@@ -12,8 +12,9 @@ def processImagePath(path):
     y = []
     for line in x:
         y.append(rgbToBrightness(line))
-    pdb.set_trace()
-    return y
+    n = width
+    final = [y[i * n:(i + 1) * n] for i in range((len(y) + n - 1) // n )]
+    return final
 
 
 def rgbToBrightness(rgbband):
