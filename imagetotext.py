@@ -10,7 +10,6 @@ def processImagePath(path):
     im.load()
     (width, height) = im.size
     rm = im.resize(newImageSize(width, height))
-    rm.show()
     (newWidth, newHeight) = rm.size
     symbols = ['@', '%', '#', 'x', '+', '=', ':', '-', '.', ' ']
     print(symbols)
@@ -18,15 +17,14 @@ def processImagePath(path):
     for i in range(newHeight):
         for j in range(newWidth):
             y = []
-            (R, G, B) = rm.getpixel(j, i)
+            (R, G, B) = rm.getpixel((j, i))
             brightness = rgbToBrightness((R, G, B))
             symbolIndex = int(brightness/255)
             symbol = symbols[symbolIndex]
             y = y.append(symbol)
-        print(y+"\n", file=outfile)
+        print(y, file=outfile)
     outfile.close()
-    final = list(rm.getdata())
-    return final
+    pdb.set_trace()
 
 
 def rgbToBrightness(rgbband):
