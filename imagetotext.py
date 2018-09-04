@@ -14,17 +14,21 @@ def processImagePath(path):
     symbols = ['@', '%', '#', 'x', '+', '=', ':', '-', '.', ' ']
     print(symbols)
     outfile = open("test.txt", "w")
+    z = []
     for i in range(newHeight):
         for j in range(newWidth):
-            y = []
             (R, G, B) = rm.getpixel((j, i))
             brightness = rgbToBrightness((R, G, B))
-            symbolIndex = int(brightness/255)
+            symbolIndex = int(brightness/25)
+            z.append(brightness)
             symbol = symbols[symbolIndex]
-            y = y.append(symbol)
-        print(y, file=outfile)
+            print(symbol, end="", file=outfile)
+        print("\n", file=outfile)
+    print(max(z))
+    print(min(z))
+    print(newWidth)
+    print(newHeight)
     outfile.close()
-    pdb.set_trace()
 
 
 def rgbToBrightness(rgbband):

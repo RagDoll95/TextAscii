@@ -6,8 +6,9 @@ import tkinter
 def main():
     root = tkinter.Tk()
     root.geometry("500x500")
-    root.pick_file = tkinter.Button(root)
+    root.pick_file = tkinter.Button(root,)
     root.pick_file.pack(side="top")
+    root.quit =
     root.mainloop()
 
 
