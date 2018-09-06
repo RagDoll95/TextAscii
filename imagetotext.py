@@ -46,6 +46,9 @@ def newImageSize(width, height):
 
 
 def calculateDivisor(nestedtuple):
+    max = (nestedtuple()[1][1], nestedtuple()[2][1], nestedtuple()[3][1])
+    min = (nestedtuple()[1][2], nestedtuple()[2][2], nestedtuple()[3][2])
+    rgbToBrightness(max)-rgbToBrightness(min)
     pass
 
 if __name__ == '__main__':
