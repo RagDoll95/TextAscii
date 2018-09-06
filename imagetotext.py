@@ -11,24 +11,26 @@ def processImagePath(path):
     (width, height) = im.size
     rm = im.resize(newImageSize(width, height))
     (newWidth, newHeight) = rm.size
+    print(rm.getextrema())
+
     symbols = ['@', '%', '#', 'x', '+', '=', ':', '-', '.', ' ']
     print(symbols)
     outfile = open("test.txt", "w")
     z = []
-    for i in range(newHeight):
-        for j in range(newWidth):
-            (R, G, B) = rm.getpixel((j, i))
-            brightness = rgbToBrightness((R, G, B))
-            symbolIndex = int(brightness/25)
-            z.append(brightness)
-            symbol = symbols[symbolIndex]
-            print(symbol, end="", file=outfile)
-        print("\n", file=outfile)
-    print(max(z))
-    print(min(z))
-    print(newWidth)
-    print(newHeight)
-    outfile.close()
+#    for i in range(newHeight):
+#        for j in range(newWidth):
+#            (R, G, B) = rm.getpixel((j, i))
+#            brightness = rgbToBrightness((R, G, B))
+#            symbolIndex = int(brightness/25)
+#            z.append(brightness)
+#            symbol = symbols[symbolIndex]
+#            print(symbol, end="", file=outfile)
+#        print("\n", file=outfile)
+#    print(max(z))
+#    print(min(z))
+#    print(newWidth)
+#    print(newHeight)
+#    outfile.close()
 
 
 def rgbToBrightness(rgbband):
@@ -42,6 +44,9 @@ def newImageSize(width, height):
     newHeight = (height * newWidth) / width
     return (newWidth, int(newHeight))
 
+
+def calculateDivisor(nestedtuple):
+    pass
 
 if __name__ == '__main__':
     processImagePath("/home/rag/Pictures/New folder/_7B2zqw33q7fhb7znvtIXcbsmITo09KWg4fFQUIaEFA.jpg")
